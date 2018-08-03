@@ -5,3 +5,8 @@ of course you must:
 > pip install opencv-python
 > pip install opencv-contrib-python
 > download haarcascade_frontalface_default.xml and place it to your current project directory
+
+
+note: i am using an IDE so dont bother about the pycache and idea. files in the face package
+
+please, i beg you , leave a star

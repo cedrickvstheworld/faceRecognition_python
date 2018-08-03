@@ -1,0 +1,7 @@
+of course you must:
+
+> install python version > 3.4
+> pip install numpy
+> pip install opencv-python
+> pip install opencv-contrib-python
+> download haarcascade_frontalface_default.xml and place it to your current project directory

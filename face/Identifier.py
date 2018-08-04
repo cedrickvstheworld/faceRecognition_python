@@ -22,15 +22,17 @@ class Detect:
         while True:
             ret, img = cam.read()
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            face = faceDetect.detectMultiScale(gray, 1.3, 5)
+            face = faceDetect.detectMultiScale(gray, 1.2, 5)
 
             for (x, y, w, h) in face:
                 cv2.rectangle(img, (x, y), (x + w, y + h), (255, 200, 150), 2)
                 ID, confidence = face_recognizer.predict(gray[x: x + w, y: y + h])
 
-                if confidence >= 50 and ID is not None:
+                # 0 is the perfect match, 50 is better than 100
+                # NOTE: the better the webcam's quality, the lesser the negatives
+                if confidence <= 80 and ID is not None:
                     conf = str(confidence).split('.')[0]
-                    cv2.putText(img, 'ID:' + str(ID) + ' ' + conf + '%', (x, y + h),
+                    cv2.putText(img, 'ID:' + str(ID) + '  ' + 'negatives:' + conf, (x, y + h),
                                 cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 1, cv2.LINE_AA)
                 else:
                     cv2.putText(img, 'unrecognized', (x, y + h),
@@ -42,7 +44,7 @@ class Detect:
 
             # or
             #
-            # if confidence >= 70:
+            # if confidence <= 80:
             #     return True, ID
             
         cam.release()

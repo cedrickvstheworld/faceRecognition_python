@@ -1,6 +1,6 @@
 import cv2
 import os
-import trainer
+from . import trainer
 
 
 class DataSetCreator:
@@ -13,7 +13,7 @@ class DataSetCreator:
 
     def capture(self):
         # haarcascade to be used
-        faceDetect = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+        faceDetect = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 
         if not os.path.exists(self.path):
             os.mkdir(self.path)

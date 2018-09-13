@@ -1,11 +1,18 @@
 from face import dataSetCreator
-from face import Identifier
+from face.Identifier import Detect
 
 # (camera index, identifier, number of captures, capture containers)
-# dataSetCreator.DataSetCreator(0, 1 , 50, 'dataSetsample')
+dataSetCreator.DataSetCreator(0, 7, 100, 'dataSetsample')
 
 # (camera index)
-Identifier.Detect(0)
+# x = Detect(0)
+# #
+# #
+# #
+# #
+# print(x.identify())
+
+
 
 
 
